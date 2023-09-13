@@ -1,6 +1,7 @@
 # readrides.py
 
 import csv
+import collections.abc
 
 def read_rides_as_tuples(filename):
     '''
@@ -23,7 +24,7 @@ def read_rides_as_dicts(filename):
     '''
     Read the bus ride data as a list of dicts
     '''
-    records = []
+    records = RideData()
     with open(filename) as f:
         rows = csv.reader(f)
         headings = next(rows)     # Skip headers
@@ -112,3 +113,4 @@ class RideData(collections.abc.Sequence):
         self.dates.append(d['date'])
         self.daytypes.append(d['daytype'])
         self.numrides.append(d['rides'])
+

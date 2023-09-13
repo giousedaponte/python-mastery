@@ -2,7 +2,7 @@ import csv
 import readrides
 from collections import Counter
 
-data = readrides.read_rides_as_dicts('ctabus.csv')
+data = readrides.read_rides_as_dicts('Data/ctabus.csv')
 
 for s in data:
     totalRidersPerRoute2011 = Counter()
@@ -12,4 +12,4 @@ for s in data:
     if year == "2001":
         totalRidersPerRoute2011[s['route']] += s['rides']
 
-print(totalRidersPerRoute2011)
+print(totalRidersPerRoute2011)  
